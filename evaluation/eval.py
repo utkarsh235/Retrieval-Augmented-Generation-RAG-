@@ -131,7 +131,7 @@ def evaluate_answer(test: TestQuestion) -> tuple[AnswerEval, str, list]:
         {
             "role": "system",
             "content": "You are an expert evaluator assessing the quality of answers. Evaluate the generated answer by comparing it to the reference answer. Only give 5/5 scores for perfect answers. Return ONLY valid JSON that strictly follows this schema:\n"
-                f"{AnswerEval.model_json_schema()}",
+                f"{AnswerEval.model_fields}",
         },
         {
             "role": "user",
@@ -154,9 +154,17 @@ Provide detailed feedback and scores from 1 (very poor) to 5 (ideal) for each di
     ]
 
     # Call LLM judge with structured outputs (async)
+    # print(AnswerEval.model_json_schema())
+    # print(AnswerEval.model_dump_json())
     judge_response =  openai.chat.completions.create(model=MODEL, messages=judge_messages, temperature=0)
+    # response = openai.responses.parse(
+    #     model=MODEL,
+    #     input=judge_messages,
+    #     text_format=AnswerEval,
+    # )
     judge_response = judge_response.choices[0].message.content
-
+    # judge_response = response.output_parsed
+    # print(judge_response)
     answer_eval = AnswerEval.model_validate_json(judge_response)
 
     return answer_eval, generated_answer, retrieved_docs

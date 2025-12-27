@@ -131,7 +131,7 @@ def evaluate_answer(test: TestQuestion) -> tuple[AnswerEval, str, list]:
         {
             "role": "system",
             "content": "You are an expert evaluator assessing the quality of answers. Evaluate the generated answer by comparing it to the reference answer. Only give 5/5 scores for perfect answers. Return ONLY valid JSON that strictly follows this schema:\n"
-                f"{AnswerEval.model_json_schema()}",
+                f"{AnswerEval.model_fields}",
         },
         {
             "role": "user",
