@@ -7,17 +7,24 @@ Retrieval-Augmented Generation (RAG) is a powerful paradigm that combines:
   - Generation: producing outputs from a large language model enriched with retrieved context.
 In simple terms: RAG helps LLMs give more accurate, contextually grounded answers by looking up external information rather than relying only on learned parameters.
 
-📂 Repository Structure
-📁 Documents/
-   └── vector_db/          # Files for vector DB or document storage
+🚀 Features
+🔹 Vector Embeddings
+Code to convert text into dense vectors for semantic similarity search.
+Likely uses embeddings like those from Sentence Transformers or other models.
+These vectors are stored in a local vector database to support fast retrieval.
 
-📁 evaluation/
-   └── Evaluation.ipynb    # Notebook for evaluating RAG responses
+🔹 Naive RAG Implementation
+A basic notebook (naive_rag.ipynb) demonstrating a straightforward RAG workflow.
+Typically includes:
+Loading documents
+Generating embeddings
+Searching similar vectors
+Combining context with an LLM for generation
+Good starting point for beginners.
 
-📁 implementation/
-   └── vector_db/          # Python modules for vector database logic
-
-📁 vector_db/
-   └── vector_embeddings.ipynb
-   └── naive_rag.ipynb     # Simple RAG demo
-📄 README.md
+🔹 Evaluation
+Evaluation.ipynb: Notebook to benchmark, analyze, or visualize the performance of your RAG system.
+Contains examples of:
+Query tests
+Model outputs
+Correctness & relevance checks
