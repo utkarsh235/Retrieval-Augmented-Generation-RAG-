@@ -7,7 +7,8 @@ Retrieval-Augmented Generation (RAG) is a powerful paradigm that combines:
   - Generation: producing outputs from a large language model enriched with retrieved context.
 In simple terms: RAG helps LLMs give more accurate, contextually grounded answers by looking up external information rather than relying only on learned parameters.
 
-🚀 Features
+🚀 Features: 
+
 🔹 Vector Embeddings
 Code to convert text into dense vectors for semantic similarity search.
 Likely uses embeddings like those from Sentence Transformers or other models.
